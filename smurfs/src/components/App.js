@@ -15,44 +15,42 @@ function App () {
   // const [height, setHeight] = useState();
   // const [id, setId] = useState();
 
-  const [smurfs, setSmurfs] = useState(makeSmurf())
+  const [smurfs, setSmurfs] = useState([{ name: "", age: "", height: "", id: null}])
 
-  const makeSmurf () => {
-    return ({
-      name: "",
-      age: ,
-      height: "",
-      id: Date.now()
-    })
-  }
 
-  const [posts, setPosts] = useState();
+  // axios
+  // .get("http://localhost:3333/smurfs")
+  // .then(res => {
+  //   console.log("axios response", res);
+  // })
+  
 
-  const nameChangeHandler = e => {
-    ({...smurfs, name: e.target.value })
+  const changeHandler = e => {
+    setSmurfs({...smurfs, [e.target.name]: e.target.value })
   };
 
-  const ageChangeHandler = e => {
-    ({...smurfs, age: e.target.value })
-  };
-
-  const heightChangeHandler = e => {
-    ({...smurfs, height: e.target.value })
-  };
   
   const submitHandler = e => {
     e.preventDefault();
-    axios.post("http://localhost:3333/smurfs", )
+    setSmurfs({
+      name: "",
+      age: "",
+      height: "",
+      id: Date.now()
+    })
+    console.log(smurfs.name);
+    console.log(smurfs.age);
+    console.log(smurfs.height);
+
+
+    axios.post("http://localhost:3333/smurfs", smurfs)
   };
 
   // useEffect()
-
-  
-
   
 
   return (
-    <SmurfContext.Provider value={{ name, age, height, id }}>
+    <SmurfContext.Provider value={{ smurfs, changeHandler, submitHandler }}>
       <div className="App">
         <h1 className="title">SMURFS! 2.0 W/ Redux</h1>
 

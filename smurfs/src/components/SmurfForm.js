@@ -2,27 +2,36 @@ import React, { useContext } from 'react';
 import SmurfContext from '../Contexts/SmurfContext';
 
 const SmurfForm = () => {
-    // changeHandler = e => {
-    //     this.setState({ [e.target.name]: e.target.value });
-    // };
 
-    const {  } = useContext(SmurfContext);
+    const { changeHandler, submitHandler } = useContext(SmurfContext);
     return (
         <div>
-            <form>
-                <label>
+            <form onSubmit={e => submitHandler(e)} className="smurf-form">
+                <label id="label" className="name-label">
                     Name:
-                        <input type="text" />
+                        <input 
+                            id="input" 
+                            type="text"
+                            name="name"
+                            onChange={e => changeHandler(e)} />
                 </label>
-                <label>
+                <label id="label" className="age-label">
                     Age:
-                        <input type="text" />
+                        <input 
+                            id="input" 
+                            type="text"
+                            name="age"
+                            onChange={e => changeHandler(e)} />
                 </label>
-                <label>
+                <label id="label" className="height-label">
                     Height:
-                        <input type="text" />
+                        <input 
+                            id="input" 
+                            type="text"
+                            name="height"
+                            onChange={e => changeHandler(e)} />
                 </label>
-                <button>Submit Smurf</button>
+                <button className="submit-button">Submit Smurf</button>
             </form>
         </div>
     );
