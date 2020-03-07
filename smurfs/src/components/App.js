@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import SmurfContext from '../Contexts/SmurfContext';
 
@@ -8,6 +8,8 @@ import SmurfList from './SmurfList';
 
 
 function App () {
+
+
   return (
     <SmurfContext.Provider value={{ }}>
       <div className="App">
@@ -22,3 +24,5 @@ function App () {
 };
 
 export default App;
+
+// [{"name":"Brainey","age":200,"height":"5cm","id":0}]
