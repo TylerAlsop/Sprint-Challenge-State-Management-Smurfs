@@ -3,7 +3,9 @@ import SmurfContext from '../Contexts/SmurfContext';
 
 const SmurfCard = () => {
     const {  } = useContext(SmurfContext);
-    return();
+    return(
+        <div></div>
+    );
 };
 
 export default SmurfCard;
