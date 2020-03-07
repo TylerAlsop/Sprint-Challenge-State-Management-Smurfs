@@ -11,8 +11,11 @@ import SmurfList from './SmurfList';
 
 function App () {
 
-  const [smurfs, setSmurfs] = useState([])
+  const [smurfs, setSmurfs] = useState([]);
 
+  const makeSmurf = (smurf) => {
+    setSmurfs([...smurfs, smurf])
+  };
 
 
   const changeHandler = e => {
@@ -32,16 +35,20 @@ function App () {
     // axios.post("http://localhost:3333/smurfs", smurfs)
   };
 
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:3333/smurfs")
-  //     .then(res => setSmurfs(res))
-  //     .catch(err => console.log(err));
-  // }, []);
+  useEffect(() => {
+    axios
+      .get("http://localhost:3333/smurfs")
+      .then(res => {
+        console.log("Axios Resopnse In App.js", res);
+        setSmurfs(res)})
+      .catch(err => {
+        console.log("Error with Axios Call", err)
+      });
+  }, []);
   
 
   return (
-    <SmurfContext.Provider value={{ smurfs, changeHandler, submitHandler }}>
+    <SmurfContext.Provider value={{ smurfs, makeSmurf, changeHandler, submitHandler }}>
       <div className="App">
         <h1 className="title">SMURFS! 2.0 W/ Redux</h1>
 
