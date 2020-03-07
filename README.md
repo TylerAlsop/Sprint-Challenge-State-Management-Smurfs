@@ -35,7 +35,12 @@ Something you do in a component (i.e. A function connected to an onClick) will a
 Application state is accessible globally (stored globally) whereas Component State is stored within a component. Application state is good if you need to access the state in multiple components (especially in cases where prop drilling would have been needed), and Component state is useful when you have state that is only consumed by a single component (or just a parent-child situation).
 
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Redux-thunk allows use to get between actions and reducers and return functions instead of actions. Our application used it to make an asynchronous redux app where an api call was not loaded upon the initializing of the app.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+I prefered the Context API state management because it made more sense to me. Maybe it was just that by the time we learned it I was catching on to how the data flows in state management systems.
 
 ## Project Set Up
 
