@@ -6,14 +6,14 @@ const SmurfForm = () => {
     const { changeHandler, submitHandler } = useContext(SmurfContext);
     return (
         <div>
-            <form onSubmit={e => submitHandler(e)} className="smurf-form">
+            <form onSubmit={submitHandler} className="smurf-form">
                 <label id="label" className="name-label">
                     Name:
                         <input 
                             id="input" 
                             type="text"
                             name="name"
-                            onChange={e => changeHandler(e)} />
+                            onChange={changeHandler} />
                 </label>
                 <label id="label" className="age-label">
                     Age:
@@ -21,7 +21,7 @@ const SmurfForm = () => {
                             id="input" 
                             type="text"
                             name="age"
-                            onChange={e => changeHandler(e)} />
+                            onChange={changeHandler} />
                 </label>
                 <label id="label" className="height-label">
                     Height:
@@ -29,7 +29,7 @@ const SmurfForm = () => {
                             id="input" 
                             type="text"
                             name="height"
-                            onChange={e => changeHandler(e)} />
+                            onChange={changeHandler} />
                 </label>
                 {/* <label id="label" className="id-label">
                     ID Number:
