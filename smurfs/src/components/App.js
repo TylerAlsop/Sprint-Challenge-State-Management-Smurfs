@@ -10,43 +10,34 @@ import SmurfList from './SmurfList';
 
 
 function App () {
-  // const [name, setName] = useState();
-  // const [age, setAge] = useState();
-  // const [height, setHeight] = useState();
-  // const [id, setId] = useState();
 
-  const [smurfs, setSmurfs] = useState([{ name: "", age: "", height: "", id: null}])
+  const [smurfs, setSmurfs] = useState([])
 
 
-  // axios
-  // .get("http://localhost:3333/smurfs")
-  // .then(res => {
-  //   console.log("axios response", res);
-  // })
-  
 
   const changeHandler = e => {
-    setSmurfs({...smurfs, [e.target.name]: e.target.value })
+    setSmurfs([{...smurfs, [e.target.name]: e.target.value }])
   };
 
   
   const submitHandler = e => {
     e.preventDefault();
-    setSmurfs({
+    setSmurfs([{
       name: "",
       age: "",
       height: "",
       id: Date.now()
-    })
-    console.log(smurfs.name);
-    console.log(smurfs.age);
-    console.log(smurfs.height);
+    }])
 
-
-    axios.post("http://localhost:3333/smurfs", smurfs)
+    // axios.post("http://localhost:3333/smurfs", smurfs)
   };
 
-  // useEffect()
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:3333/smurfs")
+  //     .then(res => setSmurfs(res))
+  //     .catch(err => console.log(err));
+  // }, []);
   
 
   return (
