@@ -8,15 +8,22 @@ import SmurfList from './SmurfList';
 
 
 function App () {
+  const [name, setName] = useState();
+  const [age, setAge] = useState();
+  const [height, setHeight] = useState();
+  const [id, setId] = useState();
+
 
 
   return (
     <SmurfContext.Provider value={{ }}>
       <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
+        <h1 className="title">SMURFS! 2.0 W/ Redux</h1>
+
+        <div className="form-and-list">
+          <SmurfForm className="smurfform"/>
+          <SmurfList className="smurflist"/>
+        </div>
       </div>
     </SmurfContext.Provider>
 
