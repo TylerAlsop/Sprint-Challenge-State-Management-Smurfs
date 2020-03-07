@@ -37,6 +37,12 @@ function App () {
     e.preventDefault();
     axios
       .post("http://localhost:3333/smurfs", smurf)
+      .then(res => {
+        console.log("Post res in submitHandler", res);
+      })
+      .catch(err => {
+        console.log("Error with POST", err);
+      })
   };
 
   useEffect(() => {
