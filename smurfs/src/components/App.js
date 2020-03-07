@@ -19,14 +19,14 @@ function App () {
     id: ""
   })
 
-  const makeSmurf = (smurf) => {
+  const addNewSmurf = (smurf) => {
     setAllSmurfs([...allSmurfs, smurf])
   };
 
 
   const changeHandler = e => {
-    setAllSmurfs({
-      ...allSmurfs,
+    setSmurf({
+      ...smurf,
       [e.target.name]: e.target.value,
       id: Date.now()
     })
@@ -36,7 +36,7 @@ function App () {
   const submitHandler = e => {
     e.preventDefault();
     axios
-    .post("http://localhost:3333/smurfs", smurf)
+      .post("http://localhost:3333/smurfs", smurf)
   };
 
   useEffect(() => {
@@ -52,7 +52,7 @@ function App () {
   
 
   return (
-    <SmurfContext.Provider value={{ allSmurfs, smurf, makeSmurf, changeHandler, submitHandler }}>
+    <SmurfContext.Provider value={{ allSmurfs, smurf, addNewSmurf, changeHandler, submitHandler }}>
       <div className="App">
         <h1 className="title">SMURFS! 2.0 W/ Redux</h1>
 
