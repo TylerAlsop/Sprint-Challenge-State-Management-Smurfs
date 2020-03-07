@@ -16,7 +16,7 @@ function App () {
 
 
   return (
-    <SmurfContext.Provider value={{ }}>
+    <SmurfContext.Provider value={{ name, age, height, id }}>
       <div className="App">
         <h1 className="title">SMURFS! 2.0 W/ Redux</h1>
 
