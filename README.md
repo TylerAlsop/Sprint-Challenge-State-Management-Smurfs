@@ -31,6 +31,9 @@ It solves the problem of needing to pass props through components that don't nee
 Something you do in a component (i.e. A function connected to an onClick) will activate an action. The action is dispacted to the reducer which updates the state in store according to which action was dispatched. Actions can also contain payloads which contain data that can be used in the updating of the state. The store is known as a 'single source of truth,' because it can contain some, if not all, of your state at a global level.
 
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application state is accessible globally (stored globally) whereas Component State is stored within a component. Application state is good if you need to access the state in multiple components (especially in cases where prop drilling would have been needed), and Component state is useful when you have state that is only consumed by a single component (or just a parent-child situation).
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
 
