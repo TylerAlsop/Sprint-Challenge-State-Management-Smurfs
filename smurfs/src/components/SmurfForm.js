@@ -31,14 +31,6 @@ const SmurfForm = () => {
                             name="height"
                             onChange={changeHandler} />
                 </label>
-                {/* <label id="label" className="id-label">
-                    ID Number:
-                        <input 
-                            id="input" 
-                            type="text"
-                            name="id"
-                            onChange={e => changeHandler(e)} />
-                </label> */}
                 <button className="submit-button">Submit Smurf</button>
             </form>
         </div>

@@ -19,11 +19,6 @@ function App () {
     id: ""
   })
 
-  const addNewSmurf = (smurf) => {
-    setAllSmurfs([...allSmurfs, smurf])
-  };
-
-
   const changeHandler = e => {
     setSmurf({
       ...smurf,
@@ -34,7 +29,6 @@ function App () {
 
   
   const submitHandler = e => {
-    e.preventDefault();
     axios
       .post("http://localhost:3333/smurfs", smurf)
       .then(res => {
@@ -58,7 +52,7 @@ function App () {
   
 
   return (
-    <SmurfContext.Provider value={{ allSmurfs, smurf, addNewSmurf, changeHandler, submitHandler }}>
+    <SmurfContext.Provider value={{ allSmurfs, smurf, changeHandler, submitHandler }}>
       <div className="App">
         <h1 className="title">SMURFS! 2.0 W/ Redux</h1>
 
@@ -73,5 +67,3 @@ function App () {
 };
 
 export default App;
-
-// [{"name":"Brainey","age":200,"height":"5cm","id":0}]
