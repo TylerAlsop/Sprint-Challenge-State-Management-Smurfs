@@ -40,7 +40,7 @@ function App () {
       .get("http://localhost:3333/smurfs")
       .then(res => {
         console.log("Axios Resopnse In App.js", res);
-        setSmurfs(res)})
+        setSmurfs(res.data)})
       .catch(err => {
         console.log("Error with Axios Call", err)
       });
