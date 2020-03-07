@@ -3,10 +3,10 @@ import SmurfContext from '../Contexts/SmurfContext';
 import SmurfCard from './SmurfCard';
 
 const SmurfList = (props) => {
-    const { smurfs } = useContext(SmurfContext);
+    const { allSmurfs } = useContext(SmurfContext);
     return(
         <div>
-            {smurfs.map(smurf => (
+            {allSmurfs.map(smurf => (
                 <SmurfCard 
                     key={smurf.id}
                     smurf={smurf} />

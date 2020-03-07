@@ -11,21 +11,27 @@ import SmurfList from './SmurfList';
 
 function App () {
 
-  const [smurfs, setSmurfs] = useState([]);
+  const [allSmurfs, setAllSmurfs] = useState([]);
+  const [smurf, setSmurf] = useState({
+    name: "",
+    age: "",
+    height: "",
+    id: ""
+  })
 
   const makeSmurf = (smurf) => {
-    setSmurfs([...smurfs, smurf])
+    setAllSmurfs([...allSmurfs, smurf])
   };
 
 
   const changeHandler = e => {
-    setSmurfs([{...smurfs, [e.target.name]: e.target.value }])
+    setAllSmurfs([{...allSmurfs, [e.target.name]: e.target.value }])
   };
 
   
   const submitHandler = e => {
     e.preventDefault();
-    setSmurfs([{
+    setAllSmurfs([{
       name: "",
       age: "",
       height: "",
@@ -40,7 +46,7 @@ function App () {
       .get("http://localhost:3333/smurfs")
       .then(res => {
         console.log("Axios Resopnse In App.js", res);
-        setSmurfs(res.data)})
+        setAllSmurfs(res.data)})
       .catch(err => {
         console.log("Error with Axios Call", err)
       });
@@ -48,7 +54,7 @@ function App () {
   
 
   return (
-    <SmurfContext.Provider value={{ smurfs, makeSmurf, changeHandler, submitHandler }}>
+    <SmurfContext.Provider value={{ allSmurfs, smurf, makeSmurf, changeHandler, submitHandler }}>
       <div className="App">
         <h1 className="title">SMURFS! 2.0 W/ Redux</h1>
 
