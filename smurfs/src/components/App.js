@@ -25,20 +25,18 @@ function App () {
 
 
   const changeHandler = e => {
-    setAllSmurfs([{...allSmurfs, [e.target.name]: e.target.value }])
+    setAllSmurfs({
+      ...allSmurfs,
+      [e.target.name]: e.target.value,
+      id: Date.now()
+    })
   };
 
   
   const submitHandler = e => {
     e.preventDefault();
-    setAllSmurfs([{
-      name: "",
-      age: "",
-      height: "",
-      id: Date.now()
-    }])
-
-    // axios.post("http://localhost:3333/smurfs", smurfs)
+    axios
+    .post("http://localhost:3333/smurfs", smurf)
   };
 
   useEffect(() => {
