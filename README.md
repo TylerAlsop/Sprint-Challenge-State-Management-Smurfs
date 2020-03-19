@@ -23,10 +23,24 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+It solves the problem of needing to pass props through components that don't need them just so that the components at the end of the line can have those props.
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+Something you do in a component (i.e. A function connected to an onClick) will activate an action. The action is dispacted to the reducer which updates the state in store according to which action was dispatched. Actions can also contain payloads which contain data that can be used in the updating of the state. The store is known as a 'single source of truth,' because it can contain some, if not all, of your state at a global level.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application state is accessible globally (stored globally) whereas Component State is stored within a component. Application state is good if you need to access the state in multiple components (especially in cases where prop drilling would have been needed), and Component state is useful when you have state that is only consumed by a single component (or just a parent-child situation).
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Redux-thunk allows use to get between actions and reducers and return functions instead of actions. Our application used it to make an asynchronous redux app where an api call was not loaded upon the initializing of the app.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+I prefered the Context API state management because it made more sense to me. Maybe it was just that by the time we learned it I was catching on to how the data flows in state management systems.
 
 ## Project Set Up
 
